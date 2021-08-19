@@ -1,0 +1,34 @@
+metadata:
+  name: alertvegetarian
+  labels:
+    nuclio.io/project-name: 32b88319-29ce-48ff-99a4-1df5a3edcf52
+spec:
+  handler: handler
+  runtime: nodejs
+  env:
+    - name: API_KEY
+      value: {YOUR_API_KEY}
+  resources: {}
+  image: "nuclio/processor-alertvegetarian:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  triggers:
+    myMqttTrigger:
+      class: ""
+      kind: mqtt
+      url: "guest:guest@{YOUR_IP}:1883"
+      attributes:
+        subscriptions:
+          - qos: 0
+            topic: iot/alertVeg
+  version: 1
+  build:
+    functionSourceCode: dmFyIG1xdHQgPSByZXF1aXJlKCdtcXR0Jyk7DQp2YXIgcmVxdWVzdCA9IHJlcXVpcmUoJ3JlcXVlc3QnKQ0KDQpjb25zdCBBUElfS0VZID0gcHJvY2Vzcy5lbnYuQVBJX0tFWQ0KDQpmdW5jdGlvbiBzZW5kTWFpbChpbmdyZWRpZW50LCBtZXNzYWdlRm9ybWF0dGVkKSB7DQogICAgcmVxdWVzdCh7DQogICAgICAgIHVybDogJyBodHRwczovL21ha2VyLmlmdHR0LmNvbS90cmlnZ2VyL2FsZXJ0VmVnL3dpdGgva2V5LycrQVBJX0tFWSwNCiAgICAgICAgcXM6IHsNCiAgICAgICAgICAgICJ2YWx1ZTEiOiBpbmdyZWRpZW50LA0KICAgICAgICAgICAgInZhbHVlMiI6IG1lc3NhZ2VGb3JtYXR0ZWQsDQoNCiAgICAgICAgfSwNCiAgICAgICAgbWV0aG9kOiAnUE9TVCcsDQogICAgICAgIGhlYWRlcnM6IHsNCiAgICAgICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicNCiAgICAgICAgfQ0KICAgIH0sIGZ1bmN0aW9uIChlcnJvciwgcmVzcG9uc2UsIGJvZHkpIHsNCiAgICAgICAgaWYgKGVycm9yKSB7DQogICAgICAgICAgICBjb25zb2xlLmxvZyhlcnJvcik7DQogICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICBjb25zb2xlLmxvZyhyZXNwb25zZS5zdGF0dXNDb2RlLCBib2R5KTsNCiAgICAgICAgfQ0KICAgIH0pOw0KfQ0KDQpmdW5jdGlvbiBiaW4yc3RyaW5nKGFycmF5KSB7DQogICAgdmFyIHJlc3VsdCA9ICIiOw0KICAgIGZvciAodmFyIGkgPSAwOyBpIDwgYXJyYXkubGVuZ3RoOyArK2kpIHsNCiAgICAgICAgcmVzdWx0ICs9IChTdHJpbmcuZnJvbUNoYXJDb2RlKGFycmF5W2ldKSk7DQogICAgfQ0KICAgIHJldHVybiByZXN1bHQ7DQp9DQoNCmZ1bmN0aW9uIHNwbGl0X3JlY2lwZXMobWVzc2FnZSkgew0KICAgIGNvbnN0IHJlY2lwZXMgPSBtZXNzYWdlLnNwbGl0KCdcbicpLm1hcCh4ID0+IHgudHJpbSgpKTsNCiAgICByZXR1cm4gcmVjaXBlczsNCn0NCg0KZnVuY3Rpb24gZm9ybWF0X21lc3NhZ2UocmVjaXBlcykgew0KICAgIGxldCBtZXNzYWdlRm9ybWF0dGVkID0gJycNCiAgICBmb3IgKGkgPSAwOyBpIDwgcmVjaXBlcy5sZW5ndGg7IGkrKykgew0KICAgICAgICBtZXNzYWdlRm9ybWF0dGVkID0gbWVzc2FnZUZvcm1hdHRlZCArIHJlY2lwZXNbaV0gKyAiPGJyPiINCiAgICB9DQogICAgcmV0dXJuIG1lc3NhZ2VGb3JtYXR0ZWQ7DQp9DQoNCmV4cG9ydHMuaGFuZGxlciA9IGZ1bmN0aW9uIChjb250ZXh0LCBldmVudCkgew0KICAgIHZhciBfZXZlbnQgPSBKU09OLnBhcnNlKEpTT04uc3RyaW5naWZ5KGV2ZW50KSk7DQogICAgdmFyIF9kYXRhID0gYmluMnN0cmluZyhfZXZlbnQuYm9keS5kYXRhKTsNCiAgICBjb250ZXh0LmNhbGxiYWNrKCJmZWVkYmFjayAiICsgX2RhdGEpOw0KICAgIGNvbnN0IG1lc3NhZ2VXaXRoSW5ncmVkaWVudCA9IF9kYXRhLnNwbGl0KCcsJykubWFwKHggPT4geC50cmltKCkpOw0KICAgIGlmIChtZXNzYWdlV2l0aEluZ3JlZGllbnRbMV0gIT09ICcnKSB7DQogICAgICAgIGNvbnNvbGUubG9nKCJTZW5kaW5nIGFuIGVtYWlsIikNCiAgICAgICAgY29uc3QgcmVjaXBlcyA9IHNwbGl0X3JlY2lwZXMobWVzc2FnZVdpdGhJbmdyZWRpZW50WzFdKQ0KICAgICAgICBjb25zdCBtZXNzYWdlRm9ybWF0dGVkID0gZm9ybWF0X21lc3NhZ2UocmVjaXBlcykNCiAgICAgICAgc2VuZE1haWwobWVzc2FnZVdpdGhJbmdyZWRpZW50WzBdLCBtZXNzYWdlRm9ybWF0dGVkKTsNCiAgICB9DQoNCn07
+    commands:
+      - 'npm install mqtt'
+      - 'npm install request'
+    runtimeAttributes:
+      repositories: []
+    codeEntryType: sourceCode
+  platform: {}
+  readinessTimeoutSeconds: 60
