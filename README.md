@@ -16,7 +16,7 @@ How many times in the **fridge** do we have:
 
 Not only is there the problem of **empty the fridge** for the options mentioned above, but also the problem of having **guests** at dinner and not knowing **what to cook** (especially in cases of intolerance and **vegetarianism** for example).
 
-So the idea is to get **several recipes through one ingredient** to resolve the problems cited previously. In particular, will be received **5 recipes with the ingredient indicate**d. If some of these 5 recipes are vegetarian, then it will be send an **email indicates only the vegetarian recipes** (so we know faster what are the recipes suitable for eventual vegetarian guests).
+So the idea is to get **several recipes through one ingredient** to resolve the problems cited previously. In particular, will be received **5 recipes with the ingredient indicated**. If some of these 5 recipes are vegetarian, then it will be sent an **email indicates only the vegetarian recipes** (so we know faster what are the recipes suitable for eventual vegetarian guests).
 
 All the recipes are obtained through **Spoonacular API** (https://spoonacular.com/food-api).
 
@@ -40,7 +40,7 @@ When a message is published in the ***'iot/alertVeg'*** queue, the function ***'
   - _**sendrecipes.yaml**_: thanks to the ingredient passed in the body, takes care of sending the recipes and vegetarian recipes, to the queues **iot/recipes** and **iot/alertVeg** respectively
   - _**getrecipes.yaml**_: takes care of receiving recipes and sending them to the queue **iot/ingredientLogger**
   - _**alertvegetarian.yaml**_: takes care of receiving vegetarian recipes and sending them to an email address
-- _**logger.js**_: takes care of printing the 5 recipes, with the ingredient, chosen that are obtained
+- _**logger.js**_: takes care of printing the 5 recipes obtained
 
 ## Getting Started
 > EmptyTheFridge requires to run:
@@ -53,7 +53,7 @@ After creating an IFTT account, you have to create a new Applet:
   - Use WebHooks in _"if"_ section and click on  _"Receive a web request"_
   - Set Event Name to: _"alertVeg"_
   - Use Gmail in _"then"_ section and click on  _"Send an email"_
-  - Set the field _"To address"_ with your email and _"Subjet/Body"_ as follows:
+  - Set the field _"To address"_ with your email and _"Subject/Body"_ as follows:
   <p align=center> <img src="images/ifttMail.png" width="250"/></p>
   <ul>
   <li>Save your API key to call the HTTP request from functions</li>
@@ -84,7 +84,7 @@ From **different** terminals, start the docker to run RabbitMQ and Nuclio with t
   ```
  
   ```sh
-  node logger.js 192.168.1.1 # put your own ip
+  node logger.js 192.168.1.1 # put your IP address
   ```
 
 ## An example
@@ -99,7 +99,7 @@ So, in the body of the request we write the ingredient chosen:
 </p>
 
 and click on _"Test"_.
-The response message "Ingredient loaded: eggs" will appear and we can see the recipes received in the logger and in [MQTT Client](https://play.google.com/store/apps/details?id=com.gbn.mqttclient) respectively:
+The response message _"Ingredient loaded: eggs"_ will appear and we can see the recipes received in the logger and in [MQTT Client](https://play.google.com/store/apps/details?id=com.gbn.mqttclient) respectively:
 
 <p align="center">
 <img src="images/recipesLogger.png" width="1024"/>
