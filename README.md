@@ -48,6 +48,15 @@ When a message is published in the ***'iot/alertVeg'*** queue, the function ***'
 > -  [Spoonacular API Account](https://spoonacular.com/food-api)
 > -  [IFTT account](https://ifttt.com/)
 
+After creating an IFTT account, you have to create a new Applet:
+  - Use WebHooks in _"if"_ section and click on  _"Receive a web request"_
+  - Set Event Name to: _"alertVeg"_
+  - Use Gmail in _"then"_ section and click on  _"Send an email"_
+  - Set the field _"To address"_ with your email and _"Subjet/Body"_ as follows:
+  <p align=center> <img src="images/ifttMail.png" width="250"/></p>
+  <ul>
+  <li>Save your API key to call the HTTP request from functions</li>
+</ul>
 
 From **different** terminals, start the docker to run RabbitMQ and Nuclio with these following commands:  
 - **Docker RabbitMQ**:
@@ -60,9 +69,9 @@ From **different** terminals, start the docker to run RabbitMQ and Nuclio with t
   ```
   
 - **Update and deploy Functions**:
-  - In both functions, change **{YOUR_IP}** with your IP;
-   - In ***'sendrecipes'*** change **{YOUR_API_KEY}** with your API key of your **Spoonacular account**;
-  - In ***'alertvegerarian'*** change **{YOUR_API_KEY}** with your API key of your **IFTT account**;
+  - In both yaml functions, change **{YOUR_IP}** with your IP;
+   - In ***'sendrecipes.yaml'*** change **{YOUR_API_KEY}** with your API key of your **Spoonacular account**;
+  - In ***'alertvegerarian.yaml'*** change **{YOUR_API_KEY}** with your API key of your **IFTT account**;
   - Type '**localhost:8070**' on your browser to open the homepage of Nuclio;
   - Create new project and call it 'EmptyTheFridge';
   - Press '**Create function**', '**Import**' and upload the three functions that are in the **yaml_functions** folder;
@@ -70,5 +79,5 @@ From **different** terminals, start the docker to run RabbitMQ and Nuclio with t
 - **Start Logger**: 
   open the terminal and type, from the **root of the project**:
   ```sh
-  node logger.js
+  node logger.js 192.168.1.1 # put your own ip
   ```
