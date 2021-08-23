@@ -4,7 +4,8 @@
 [- Introduction](#introduction): brief introduction to the problem  
 [- Architecture](#architecture): architecture of the idea  
 [- Project structure](#project-structure): how the project is organized  
-[- Getting started](#getting-started): guide to run the project  
+[- Getting started](#getting-started): guide to run the project <br>
+[- An example](#an-example): an example of how the project works
 
 ## Introduction
 This is a project for the exam of Serverless Computing for IoT.
@@ -78,6 +79,38 @@ From **different** terminals, start the docker to run RabbitMQ and Nuclio with t
   - Press **'Deploy'**.
 - **Start Logger**: 
   open the terminal and type, from the **root of the project**:
+   ```sh
+  npm install amqplib
+  ```
+ 
   ```sh
   node logger.js 192.168.1.1 # put your own ip
   ```
+
+## An example
+Once deployed all three functions and started logger, with the function ***'sendrecipes'*** we want to search some recipes that use **eggs**, for example. 
+
+> If you need ingredient names in your application, you can download a list of the 1000 most frequently used ingredients ([Download ingredient list](https://spoonacular.com/application/frontend/downloads/top-1k-ingredients.csv)) including their id so you can call the API for more information.
+
+So, in the body of the request we write the ingredient chosen:
+
+<p align="center">
+<img src="images/bodyRequest.png" width="500"/>
+</p>
+
+and click on _"Test"_.
+The response message "Ingredient loaded: eggs" will appear and we can see the recipes received in the logger and in [MQTT Client](https://play.google.com/store/apps/details?id=com.gbn.mqttclient) respectively:
+
+<p align="center">
+<img src="images/recipesLogger.png" width="1024"/>
+</p>
+
+<p align="center">
+<img src="images/recipesMqttClient.jpg" width="250"/>
+</p>
+
+Moreover, in these 5 recipes, two of them are vegetarian, so an email will arrive with this content:
+
+<p align="center">
+<img src="images/recipesMail.jpg" width="250"/>
+</p>
