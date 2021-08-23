@@ -33,3 +33,42 @@ When a message is published in the ***'iot/alertVeg'*** queue, the function ***'
 <p align="center">
 <img src="images/architecture.jpg" alt="drawing"/>
 </p>
+
+## Project Structure
+- yaml_functions/
+  - _**sendrecipes.yaml**_: thanks to the ingredient passed in the body, takes care of sending the recipes and vegetarian recipes, to the queues **iot/recipes** and **iot/alertVeg** respectively
+  - _**getrecipes.yaml**_: takes care of receiving recipes and sending them to the queue **iot/ingredientLogger**
+  - _**alertvegetarian.yaml**_: takes care of receiving vegetarian recipes and sending them to an email address
+- _**logger.js**_: takes care of printing the 5 recipes, with the ingredient, chosen that are obtained
+
+## Getting Started
+> EmptyTheFridge requires to run:
+> -  [Node.js](https://nodejs.org/en/)
+> -  [Docker](https://www.docker.com/products/docker-desktop)
+> -  [Spoonacular API Account](https://spoonacular.com/food-api)
+> -  [IFTT account](https://ifttt.com/)
+
+
+From **different** terminals, start the docker to run RabbitMQ and Nuclio with these following commands:  
+- **Docker RabbitMQ**:
+  ```sh
+  docker run -p 9000:15672  -p 1883:1883 -p 5672:5672  cyrilix/rabbitmq-mqtt
+  ```
+- **Docker Nuclio**:
+  ```sh
+  docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp nuclio/dashboard:stable-amd64
+  ```
+  
+- **Update and deploy Functions**:
+  - In both functions, change **{YOUR_IP}** with your IP;
+   - In ***'sendrecipes'*** change **{YOUR_API_KEY}** with your API key of your **Spoonacular account**;
+  - In ***'alertvegerarian'*** change **{YOUR_API_KEY}** with your API key of your **IFTT account**;
+  - Type '**localhost:8070**' on your browser to open the homepage of Nuclio;
+  - Create new project and call it 'EmptyTheFridge';
+  - Press '**Create function**', '**Import**' and upload the three functions that are in the **yaml_functions** folder;
+  - Press **'Deploy'**.
+- **Start Logger**: 
+  open the terminal and type, from the **root of the project**:
+  ```sh
+  node logger.js
+  ```
