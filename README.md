@@ -30,6 +30,6 @@ When a message is published in the queue ***'iot/recipes'***, the function ***'g
 
 When a message is published in the ***'iot/alertVeg'*** queue, the function ***'alertvegetarian'*** on Nuclio is triggered, and send an email with the vegetarian recipes.
 
- <!-- <p align="center">
-<img src="architecture.PNG" alt="drawing"/>
-</p> -->
+<p align="center">
+<img src="images/architecture.jpg" alt="drawing"/>
+</p>
