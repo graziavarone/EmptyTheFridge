@@ -1,4 +1,3 @@
-var mqtt = require('mqtt');
 var request = require('request')
 
 const API_KEY = process.env.API_KEY
