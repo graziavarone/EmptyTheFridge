@@ -1,7 +1,7 @@
 metadata:
   name: getrecipes
   labels:
-    nuclio.io/project-name: 32b88319-29ce-48ff-99a4-1df5a3edcf52
+    nuclio.io/project-name: eed927ee-a78d-4a01-8f3f-ca7e5827f87d
 spec:
   handler: handler
   runtime: nodejs
@@ -21,6 +21,7 @@ spec:
         subscriptions:
           - qos: 0
             topic: iot/recipes
+  version: 1
   build:
     functionSourceCode: dmFyIGFtcXAgPSByZXF1aXJlKCdhbXFwbGliJyk7Cgpjb25zdCBJUCA9IHByb2Nlc3MuZW52LklQOwoKZnVuY3Rpb24gc2VuZF9mZWVkYmFjayhtc2cpIHsKICAgIHZhciBxID0gJ2lvdC9pbmdyZWRpZW50TG9nZ2VyJzsKICAgIGFtcXAuY29ubmVjdChgYW1xcDovL2d1ZXN0Omd1ZXN0QCR7SVB9OjU2NzJgKS50aGVuKGZ1bmN0aW9uIChjb25uKSB7CiAgICAgICAgcmV0dXJuIGNvbm4uY3JlYXRlQ2hhbm5lbCgpLnRoZW4oZnVuY3Rpb24gKGNoKSB7CiAgICAgICAgICAgIHZhciBvayA9IGNoLmFzc2VydFF1ZXVlKHEsIHsgZHVyYWJsZTogZmFsc2UgfSk7CiAgICAgICAgICAgIHJldHVybiBvay50aGVuKGZ1bmN0aW9uIChfcW9rKSB7CiAgICAgICAgICAgICAgICBjaC5zZW5kVG9RdWV1ZShxLCBCdWZmZXIuZnJvbShtc2cpKTsKICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKCIgW3hdIFNlbnQgJyVzJyIsIG1zZyk7CiAgICAgICAgICAgICAgICByZXR1cm4gY2guY2xvc2UoKTsKICAgICAgICAgICAgfSk7CiAgICAgICAgfSkuZmluYWxseShmdW5jdGlvbiAoKSB7CiAgICAgICAgICAgIGNvbm4uY2xvc2UoKTsKICAgICAgICB9KTsKICAgIH0pLmNhdGNoKGNvbnNvbGUud2Fybik7Cn0KCmZ1bmN0aW9uIGJpbjJzdHJpbmcoYXJyYXkpIHsKICAgIHZhciByZXN1bHQgPSAiIjsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgYXJyYXkubGVuZ3RoOyArK2kpIHsKICAgICAgICByZXN1bHQgKz0gKFN0cmluZy5mcm9tQ2hhckNvZGUoYXJyYXlbaV0pKTsKICAgIH0KICAgIHJldHVybiByZXN1bHQ7Cn0KCmV4cG9ydHMuaGFuZGxlciA9IGZ1bmN0aW9uIChjb250ZXh0LCBldmVudCkgewogICAgdmFyIF9ldmVudCA9IEpTT04ucGFyc2UoSlNPTi5zdHJpbmdpZnkoZXZlbnQpKTsKICAgIHZhciBfZGF0YSA9IGJpbjJzdHJpbmcoX2V2ZW50LmJvZHkuZGF0YSk7CiAgICBjb250ZXh0LmNhbGxiYWNrKCJmZWVkYmFjayAiICsgX2RhdGEpOwogICAgY29uc29sZS5sb2coIlRSSUdHRVIgIiArIF9kYXRhKTsKICAgIHNlbmRfZmVlZGJhY2soX2RhdGEpOwp9Ow==
     commands:
@@ -30,4 +31,3 @@ spec:
     codeEntryType: sourceCode
   platform: {}
   readinessTimeoutSeconds: 60
-  version: 1

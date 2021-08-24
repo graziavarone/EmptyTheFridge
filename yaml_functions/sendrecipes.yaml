@@ -1,13 +1,13 @@
 metadata:
   name: sendrecipes
   labels:
-    nuclio.io/project-name: 32b88319-29ce-48ff-99a4-1df5a3edcf52
+    nuclio.io/project-name: eed927ee-a78d-4a01-8f3f-ca7e5827f87d
 spec:
   handler: handler
   runtime: nodejs
   env:
     - name: IP
-      value: {YOUR_IP}
+      value:{YOUR_IP}
     - name: API_KEY
       value: {YOUR_API_KEY}
   resources: {}
