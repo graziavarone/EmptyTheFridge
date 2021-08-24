@@ -1,7 +1,7 @@
 metadata:
   name: alertvegetarian
   labels:
-    nuclio.io/project-name: 8226f05d-5d61-44ba-bbea-899e4f1c3d6f
+    nuclio.io/project-name: 32b88319-29ce-48ff-99a4-1df5a3edcf52
 spec:
   handler: handler
   runtime: nodejs
