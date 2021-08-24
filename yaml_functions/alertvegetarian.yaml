@@ -7,7 +7,7 @@ spec:
   runtime: nodejs
   env:
     - name: API_KEY
-      value: 3bZHYmXIWb0nOkcBU9Ciy
+      value: {YOUR_API_KEY}
   resources: {}
   image: "nuclio/processor-alertvegetarian:latest"
   minReplicas: 1
@@ -16,7 +16,7 @@ spec:
     myMqttTrigger:
       class: ""
       kind: mqtt
-      url: "guest:guest@192.168.1.77:1883"
+      url: "guest:guest@{YOUR_IP}:1883"
       attributes:
         subscriptions:
           - qos: 0
